@@ -15,7 +15,11 @@ export default function Button(props) {
     className.push(
       'bg-primary text-white hover:bg-transparent hover:border hover:border-primary hover:text-primary'
     );
-  if (props.isRounded) className.push('rounded-xl');
+  if (props.isSecondary)
+    className.push(
+      'bg-secondary text-white hover:bg-transparent hover:border hover:border-primary hover:text-primary'
+    );
+  if (props.isRounded) className.push('rounded-lg');
   if (props.isFlex) className.push('flex');
   if (props.isFull) className.push('w-full');
   const onClick = () => {
@@ -98,6 +102,7 @@ Button.propTypes = {
   isFull: propTypes.bool,
   isTransparent: propTypes.bool,
   isPrimary: propTypes.bool,
+  isSecondary: propTypes.bool,
   isRounded: propTypes.bool,
   isExternal: propTypes.bool,
   hasShadow: propTypes.bool,
