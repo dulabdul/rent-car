@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../components/Button';
-import gPlay from '../assets/images/design/gplay.svg';
 import heroCar from '../assets/images/design/hero-car.png';
+import gPlay from '../assets/images/design/icons/gplay.svg';
 
 import { AiFillApple } from 'react-icons/ai';
 export default function Hero() {
