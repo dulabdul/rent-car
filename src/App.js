@@ -1,7 +1,6 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import LandingPages from './pages/LandingPages';
-
 import React from 'react';
 import NotFoundPages from './pages/NotFoundPages';
 
