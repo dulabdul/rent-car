@@ -48,7 +48,7 @@ export default function WhyChoseUs({ whyChoseUsRef }) {
           <h1 className='text-slate-500 text-start my-4 text-base font-normal uppercase'>
             Why Choose Us
           </h1>
-          <h2 className='font-semibold text-start text-primary capitalize text-3xl md:text-4xl mb-4'>
+          <h2 className='font-semibold text-start text-primary capitalize text-2xl md:text-4xl mb-4'>
             Get the best experience of rental cars
           </h2>
           {arrFeatured.map((items, index) => {

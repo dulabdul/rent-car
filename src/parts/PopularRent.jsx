@@ -122,12 +122,12 @@ export default function PopularRent({ popularRentRef }) {
   return (
     <section
       ref={popularRentRef}
-      className='w-full py-36 flex overflow-hidden items-center justify-center'>
+      className='w-full py-36 px-2 flex overflow-hidden items-center justify-center'>
       <div className='container mx-auto'>
         <h1 className='text-center mb-3 uppercase text-base text-tersier'>
           POpular rental deals
         </h1>
-        <h2 className='capitalize text-primary font-semibold text-center text-3xl'>
+        <h2 className='capitalize text-primary font-semibold text-center text-2xl md:text-3xl'>
           Most popular cars rental deals
         </h2>
         <div className='w-full py-12 flex flex-wrap gap-y-4 md:grid md:grid-cols-4 items-center justify-center overflow-hidden'>

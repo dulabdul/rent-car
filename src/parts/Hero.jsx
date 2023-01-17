@@ -9,8 +9,8 @@ import { Fade } from 'react-reveal';
 export default function Hero() {
   return (
     <section className='flex flex-col items-center hero'>
-      <div className='w-full items-center grid grid-cols-1 md:grid-cols-2 justify-center inset-0 md:pb-0 z-20 min-h-[100vh] md:min-h-[90vh] md:min-h-auto md:relative'>
-        <div className='mx-auto w-full pt-20 md:pt-0 md:w-[510px] overflow-hidden px-4'>
+      <div className='w-full items-center grid grid-cols-1 md:grid-cols-2 justify-center inset-0 md:pb-0 z-20 min-h-[90vh] md:min-h-auto md:relative'>
+        <div className='mx-auto w-full pt-16   md:pt-0 md:w-[510px] overflow-hidden px-4'>
           <Fade bottom>
             <div className='relative w-full flex flex-col gap-y-4'>
               <h1 className='font-medium text-primary text-3xl md:text-5xl'>
@@ -72,11 +72,11 @@ export default function Hero() {
         </div>
         <Fade top>
           <div className='w-full mb-28 mt-8 md:mt-0 md:mb-0 md:relative'>
-            <div className='relative h-[30vh] md:h-auto md:min-h-auto'>
+            <div className='relative md:w-full h-auto md:min-h-auto'>
               <img
                 src={heroCar}
                 alt='Hero Car'
-                className='w-full h-full object-cover object-center md:relative'
+                className='w-[390px] md:w-full h-full object-cover object-center md:relative'
               />
             </div>
             <div className='flex justify-start md:hidden px-4 py-4 items-center gap-x-2 md:gap-x-4'>
