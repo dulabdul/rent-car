@@ -18,44 +18,6 @@ export default function LandingPages() {
   }, []);
   return (
     <>
-      <Helmet>
-        <link
-          rel='canonical'
-          href='https://rent-car-theta.vercel.app/'
-        />
-        <meta
-          name='author'
-          content='Abdul Rahman'
-        />
-        <meta
-          name='description'
-          content='Rent Car Website'
-        />
-        <meta
-          name='keywords'
-          content='Rent Car, Car, Rental Car'
-        />
-        <meta
-          property='og:image'
-          content='https://source.unsplash.com/random/300x200'
-        />
-        <meta
-          property='og:title'
-          content='Rent Car Web'
-        />
-        <meta
-          property='og:url'
-          content='https://rent-car-theta.vercel.app/'
-        />
-        <meta
-          property='og:description'
-          content='Website to rent car'
-        />
-        <meta
-          property='og:type'
-          content='website'
-        />
-      </Helmet>
       <Header
         howItWorkRef={howItWorkRef}
         whyChoseUsRef={whyChoseUsRef}
