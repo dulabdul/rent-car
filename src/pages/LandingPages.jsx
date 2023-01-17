@@ -39,6 +39,22 @@ export default function LandingPages() {
           property='og:image'
           content='https://imgcdn.oto.com/medium/gallery/exterior/1/393/audi-q5-15113.jpg'
         />
+        <meta
+          property='og:title'
+          content='Rent Car Web'
+        />
+        <meta
+          property='og:url'
+          content='https://rent-car-theta.vercel.app/'
+        />
+        <meta
+          property='og:description'
+          content='Website to rent car'
+        />
+        <meta
+          property='og:type'
+          content='website'
+        />
       </Helmet>
       <Header
         howItWorkRef={howItWorkRef}
