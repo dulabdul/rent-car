@@ -37,7 +37,7 @@ export default function LandingPages() {
         />
         <meta
           property='og:image'
-          content='https://imgcdn.oto.com/medium/gallery/exterior/1/393/audi-q5-15113.jpg'
+          content='https://source.unsplash.com/random/300x200'
         />
         <meta
           property='og:title'
