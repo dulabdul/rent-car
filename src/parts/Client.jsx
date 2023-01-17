@@ -43,13 +43,13 @@ export default function Client() {
     },
   ];
   return (
-    <section className='flex items-center justify-center overflow-hidden w-full py-28'>
-      <div className='container items-center mx-auto grid grid-cols-4 md:grid-cols-8 overflow-hidden w-full'>
+    <section className='flex items-center justify-center overflow-hidden w-full  md:py-28'>
+      <div className='container items-center mx-auto flex flex-wrap gap-x-4 gap-y-6 md:gap-x-16 px-3 py-16 md:py-8 justify-center overflow-hidden'>
         {arrClient.map((items, index) => {
           return (
             <div
               key={index}
-              className='w-[75px] flex items-center h-[75px] overflow-hidden'>
+              className='w-[75px] flex items-center justify-center h-[75px] overflow-hidden'>
               <img
                 src={items.src}
                 alt={items.title}

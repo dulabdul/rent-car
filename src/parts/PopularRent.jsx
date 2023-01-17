@@ -5,14 +5,14 @@ import { RiTempColdLine } from 'react-icons/ri';
 import { GiCarDoor } from 'react-icons/gi';
 import { AiTwotoneStar } from 'react-icons/ai';
 import { BsArrowRight } from 'react-icons/bs';
-
 import car1 from '../assets/images/design/car-1.png';
 import car2 from '../assets/images/design/car-2.png';
 import car3 from '../assets/images/design/car-3.png';
 import car4 from '../assets/images/design/car-4.png';
 import Button from '../components/Button';
+import Star from '../components/Star';
 
-export default function PopularRent() {
+export default function PopularRent({ popularRentRef }) {
   const arrFeatur = [
     {
       id: 1,
@@ -120,7 +120,9 @@ export default function PopularRent() {
     },
   ];
   return (
-    <section className='w-full py-36 flex overflow-hidden items-center justify-center'>
+    <section
+      ref={popularRentRef}
+      className='w-full py-36 flex overflow-hidden items-center justify-center'>
       <div className='container mx-auto'>
         <h1 className='text-center mb-3 uppercase text-base text-tersier'>
           POpular rental deals
@@ -128,33 +130,37 @@ export default function PopularRent() {
         <h2 className='capitalize text-primary font-semibold text-center text-3xl'>
           Most popular cars rental deals
         </h2>
-        <div className='w-full py-12 grid grid-cols-1 md:grid-cols-4 items-center justify-center overflow-hidden'>
+        <div className='w-full py-12 flex flex-wrap gap-y-4 md:grid md:grid-cols-4 items-center justify-center overflow-hidden'>
           {arrFeatur.map((items, index) => {
             return (
               <div
                 key={items.id}
-                className='bg-white border overflow-hidden p-2 shadow-lg rounded-xl w-[272px] h-[385px]'>
+                className='bg-white border overflow-hidden p-1 md:p-2 shadow-lg rounded-xl w-11/12 md:w-[272px] h-[385px]'>
                 <div className='h-[165px] flex items-center justify-center overflow-hidden bg-[#F7F7FB] rounded-xl'>
                   <img
                     src={items.src}
                     alt={items.alt}
                   />
                 </div>
-                <div className='ml-1 mt-3'>
+                <div className='ml-1 mt-3 px-2 md:px-0'>
                   <div className='flex items-center'>
-                    <AiTwotoneStar className='text-yellow-300 text-2xl' />
-                    <p className='text-base font-semibold text-primary ml-1'>
-                      {items.review}
-                    </p>
-                    <span className='text-sm font-light text-tersier'>
+                    <Star
+                      value={items.review}
+                      width={24}
+                      height={24}
+                      spacing={2}></Star>
+                    <span className='text-primary font-normal text-sm'>
+                      {items.review}{' '}
+                    </span>
+                    <span className='text-[10px] font-light text-tersier'>
                       {'[100+ review]'}
                     </span>
                   </div>
-                  <h4 className='font-semibold text-primary mt-4'>
+                  <h4 className='font-semibold text-primary mt-4 px-2 md:px-0'>
                     {items.name}
                   </h4>
                 </div>
-                <div className='w-full py-2 mx-2 grid grid-cols-2 justify-center overflow-hidden'>
+                <div className='w-full py-2 mx-2 grid grid-cols-2 justify-center overflow-hidden px-2 md:px-0'>
                   {items.fitur.map((featur, index) => {
                     return (
                       <div
@@ -169,7 +175,7 @@ export default function PopularRent() {
                   })}
                 </div>
                 <hr />
-                <div className='flex my-2 items-center justify-between'>
+                <div className='flex my-2 items-center justify-between px-2 md:px-0'>
                   <p>
                     {'$'}
                     {items.price} /

@@ -20,6 +20,7 @@ export default function Button(props) {
       'bg-secondary text-white hover:bg-transparent hover:border hover:border-primary hover:text-primary'
     );
   if (props.isRounded) className.push('rounded-lg');
+  if (props.isRoundedFull) className.push('rounded-full');
   if (props.isFlex) className.push('flex');
   if (props.isFull) className.push('w-full');
   const onClick = () => {
@@ -104,6 +105,7 @@ Button.propTypes = {
   isPrimary: propTypes.bool,
   isSecondary: propTypes.bool,
   isRounded: propTypes.bool,
+  isRoundedFull: propTypes.bool,
   isExternal: propTypes.bool,
   hasShadow: propTypes.bool,
 };

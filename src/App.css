@@ -4,12 +4,11 @@
 @tailwind utilities;
 @layer utilities {
   .button {
-    @apply min-h-[44px] min-w-[44px] px-4 py-1;
+    @apply min-h-[44px] min-w-[44px] px-2 md:px-4 py-1;
   }
 }
 body {
   @apply font-poppins;
-  height: 5000px;
 }
 /* header {
   background-color: rgba(245, 245, 245, 0.5) !important;
@@ -24,13 +23,14 @@ header > .container > nav {
 header > nav .active {
   @apply text-secondary font-semibold;
 }
+div.ul > ul {
+  @apply gap-y-[4px];
+}
 .hero {
   background-image: url('./assets/images/design/Bg.png');
 }
 .carousel-root {
-  width: 64% !important;
-  margin: auto !important;
-  margin-top: 3% !important;
+  @apply w-11/12 md:w-[64%] m-auto md:mt-[3%] !important;
 }
 
 .carousel .slide {
@@ -40,12 +40,7 @@ header > nav .active {
 }
 
 .carousel .control-dots {
-  display: flex;
-  justify-content: end;
-  right: 20%;
-  padding-left: 4.2rem !important;
-  outline: 0;
-  bottom: 5% !important;
+  @apply flex justify-end right-[25%] md:right-[20%] pl-[4.2rem] outline-0 bottom-[2%] md:bottom-[5%] !important;
 }
 .carousel .control-dots .dot {
   box-shadow: none !important;
@@ -58,4 +53,11 @@ header > nav .active {
 }
 .carousel .control-dots .dot {
   @apply w-6 h-[6px] bg-secondary rounded-sm !important;
+}
+.scrolled {
+  background-color: rgba(245, 245, 245, 0.5) !important;
+  transition: all 0.3s linear;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
 }

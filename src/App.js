@@ -2,7 +2,8 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import LandingPages from './pages/LandingPages';
 
-import React, { useEffect } from 'react';
+import React from 'react';
+import NotFoundPages from './pages/NotFoundPages';
 
 export default function App() {
   return (
@@ -12,6 +13,11 @@ export default function App() {
           exatch
           path='/'
           element={<LandingPages />}
+        />
+        <Route
+          exacth
+          path='*'
+          element={<NotFoundPages />}
         />
       </Routes>
     </>

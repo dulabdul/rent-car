@@ -14,10 +14,9 @@ import phone2 from '../assets/images/design/phone2.png';
 import elipse10 from '../assets/images/design/icons/elipse10.svg';
 import elipse11 from '../assets/images/design/icons/elipse11.svg';
 import elipse12 from '../assets/images/design/icons/elipse12.svg';
-import elipse13 from '../assets/images/design/icons/elipse13.svg';
-import elipse14 from '../assets/images/design/icons/elipse14.svg';
-import elipse15 from '../assets/images/design/icons/elipse15.svg';
-export default function Testimonial() {
+import Star from '../components/Star';
+
+export default function Testimonial({ testimonialRef }) {
   const arrTestimonial = [
     {
       name: 'Shirley Fultz',
@@ -53,11 +52,13 @@ export default function Testimonial() {
     },
   ];
   return (
-    <section className='w-full flex justify-center flex-col bg-gradient-to-t from-[#FAFAFA] to-[#FAFAFA] pt-24 pb-96 relative'>
+    <section
+      ref={testimonialRef}
+      className='w-full flex justify-center flex-col bg-gradient-to-t from-[#FAFAFA] to-[#FAFAFA] pt-24 pb-96 relative'>
       <h1 className='text-tersier text-base my-5 font-normal uppercase text-center'>
         Testimonials
       </h1>
-      <h2 className='font-semibold text-primary text-3xl text-center'>
+      <h2 className='font-semibold text-primary text-2xl md:text-3xl text-center pb-12 md:py-4'>
         What people say about us?
       </h2>
       <Carousel
@@ -70,28 +71,32 @@ export default function Testimonial() {
           return (
             <div
               key={index}
-              className='grid grid-cols-2 w-full overflow-hidden items-center justify-center'>
-              <div className='w-full h-[525px] p-1'>
+              className='grid grid-cols-1 md:grid-cols-2 w-full overflow-hidden items-center justify-center'>
+              <div className='w-full h-[350px] md:h-[525px] p-1'>
                 <img
                   src={items.imgUrl}
                   alt={items.name}
                   className='object-cover object-center bg-no-repeat w-full h-full'
                 />
               </div>
-              <div className='myCarousel w-full h-full flex  flex-col justify-evenly px-8 py-6'>
-                <p className='text-start text-primary text-2xl'>
+              <div className='myCarousel w-full h-full flex flex-col justify-evenly px-4 pt-3 pb-12 md:pb-0 md:pt-0 md:px-8 md:py-6'>
+                <p className='text-start text-primary text-lg md:text-2xl'>
                   {items.review}
                 </p>
                 <div className='text-start'>
-                  <h3 className='text-primary text-start text-3xl font-semibold capitalize'>
+                  <h3 className='text-primary text-start my-3 md:my-0 text-2xl md:text-3xl font-semibold capitalize'>
                     {items.name}
                   </h3>
-                  <h4 className='text-tersier text-start text-lg font-normal'>
+                  <h4 className='text-tersier text-start mb-2 md:mb-0 text-base md:text-lg font-normal'>
                     {items.job}
                   </h4>
                   <div className='flex items-center'>
-                    <AiTwotoneStar className='text-yellow-300 text-2xl mr-1' />{' '}
-                    {items.star}
+                    <Star
+                      value={items.star}
+                      width={28}
+                      height={28}
+                      spacing={4}></Star>
+                    <span className='text-primary ml-4'>{items.star}</span>
                   </div>
                 </div>
               </div>
@@ -99,23 +104,24 @@ export default function Testimonial() {
           );
         })}
       </Carousel>
-      <div className='w-full overflow-hidden flex items-center justify-center bottom-[-20%] absolute z-10'>
-        <div className='w-[1160px] h-[332px] grid grid-cols-2 container mx-auto bg-gradient- from-[#20BFB6] to-[#2fe8df] rounded-2xl'>
-          <div className='w-full overflow-hidden flex flex-col px-12 py-8'>
-            <h1 className='text-primary font-semibold capitalize text-4xl my-4 z-50'>
-              Download Carmania App for free
-            </h1>
-            <p className='text-slate-700 z-50'>
-              For faster, easier booking and exclusive deals.
-            </p>
-            <div className='flex items-center py-12 gap-x-4 z-50'>
+      <div className='w-full overflow-hidden flex items-center justify-center bottom-[-20%] absolute'>
+        <div className='md:w-[1160px] md:h-[332px] grid grid-cols-2 container mx-auto bg-gradient-to-tr from-[#20BFB6] to-[#2fe8df] rounded-xl md:rounded-2xl'>
+          <div className='w-full overflow-hidden flex flex-col justify-evenly md:justify-start p-4 md:px-12 md:py-8'>
+            <div>
+              <h1 className='text-primary font-semibold capitalize text-2xl md:text-4xl my-2 md:my-4 z-50'>
+                Download Carmania App for free
+              </h1>
+              <p className='text-slate-700 z-50'>
+                For faster, easier booking and exclusive deals.
+              </p>
+            </div>
+            <div className='flex flex-col md:flex-row items-center gap-y-3 md:gap-y-0 py-4 md:py-12 gap-x-4 z-50 overflow-hidden'>
               <Button
                 isPrimary
                 isRounded
                 hasShadow
                 isFlex
-                isWidthAuto
-                className='button items-center'>
+                className='button items-center w-full md:w-auto'>
                 <AiFillApple className='text-4xl mr-2' />
                 <div>
                   <span className='text-[10px] font-light text-center'>
@@ -129,15 +135,14 @@ export default function Testimonial() {
                 isRounded
                 hasShadow
                 isFlex
-                isWidthAuto
-                className='button items-center'>
+                className='button items-center md:w-auto w-full'>
                 <img
                   src={gPlay}
                   alt='Google Play'
-                  className='w-8 h-8'
+                  className='w-6 h-6 md:w-8 md:h-8'
                 />
-                <div>
-                  <span className='uppercase   text-[10px] font-light text-center'>
+                <div className='ml-1 md:ml-0'>
+                  <span className='uppercase text-[10px] font-light text-center'>
                     Get in on
                   </span>
                   <h5 className='text-center font-medium text-lg'>
@@ -145,24 +150,6 @@ export default function Testimonial() {
                   </h5>
                 </div>
               </Button>
-            </div>
-            <div className='absolute z-20 bottom-0 left-0'>
-              <img
-                src={elipse15}
-                alt='elipse'
-              />
-            </div>
-            <div className='absolute z-20 bottom-0 left-0'>
-              <img
-                src={elipse14}
-                alt='elipse'
-              />
-            </div>
-            <div className='absolute z-20 bottom-0 left-0'>
-              <img
-                src={elipse13}
-                alt='elipse'
-              />
             </div>
           </div>
           <div className='w-full flex justify-end inset-0 '>
@@ -184,17 +171,21 @@ export default function Testimonial() {
                 alt='elipse'
               />
             </div>
-            <div className='z-50 '>
-              <img
-                src={phone1}
-                alt='Dummy Phone '
-              />
-            </div>
-            <div className='z-50'>
-              <img
-                src={phone2}
-                alt='Dummy Phone '
-              />
+            <div className='w-full flex  md:justify-end md:gap-x-8 flex-col md:flex-row flex-wrap md:flex-nowrap'>
+              <div className='z-50 flex justify-start md:block'>
+                <img
+                  src={phone1}
+                  alt='Dummy Phone'
+                  className='object-cover object-center bg-no-repeat h-[250px] md:h-auto'
+                />
+              </div>
+              <div className='z-50 flex justify-end md:block'>
+                <img
+                  src={phone2}
+                  alt='Dummy Phone '
+                  className='object-cover object-center bg-no-repeat h-[250px] md:h-auto'
+                />
+              </div>
             </div>
           </div>
         </div>
