@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from '../components/Button';
-import heroCar from '../assets/images/design/hero-car.png';
 import gPlay from '../assets/images/design/icons/gplay.svg';
 import dash from '../assets/images/design/icons/dash.svg';
-
+import heroImg from '../assets/images/design/hero-car.png';
 import { AiFillApple } from 'react-icons/ai';
 import { Fade } from 'react-reveal';
+
 export default function Hero() {
   return (
     <section className='flex flex-col items-center hero'>
@@ -74,11 +74,12 @@ export default function Hero() {
           <div className='w-full mb-28 mt-8 md:mt-0 md:mb-0 md:relative'>
             <div className='relative md:w-full h-auto md:min-h-auto'>
               <img
-                src={heroCar}
+                src={heroImg}
                 alt='Hero Car'
                 className='w-[390px] md:w-full h-full object-cover object-center md:relative'
               />
             </div>
+
             <div className='flex justify-start md:hidden px-4 py-4 items-center gap-x-2 md:gap-x-4'>
               <Button
                 isPrimary

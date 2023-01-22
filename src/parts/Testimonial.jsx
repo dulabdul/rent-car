@@ -1,11 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import { AiTwotoneStar } from 'react-icons/ai';
-import people1 from '../assets/images/design/people-1.jpg';
-import people2 from '../assets/images/design/people-2.jpg';
-import people3 from '../assets/images/design/people-3.jpg';
-import people4 from '../assets/images/design/people-4.jpg';
 import gPlay from '../assets/images/design/icons/gplay.svg';
 import { AiFillApple } from 'react-icons/ai';
 import Button from '../components/Button';
@@ -15,42 +10,15 @@ import elipse10 from '../assets/images/design/icons/elipse10.svg';
 import elipse11 from '../assets/images/design/icons/elipse11.svg';
 import elipse12 from '../assets/images/design/icons/elipse12.svg';
 import Star from '../components/Star';
+import useAsync from '../helpers/hooks/useAsync';
+import fetchData from '../helpers/fetch';
+import { SkeletonLoadingTestimonials } from './SkeletonLoading';
 
 export default function Testimonial({ testimonialRef }) {
-  const arrTestimonial = [
-    {
-      name: 'Shirley Fultz',
-      job: 'Designer',
-      review:
-        ' Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui distinctio error explicabo sapiente labore odio perspiciatis voluptatum ipsum iure ullam.',
-      star: 4.8,
-      imgUrl: people1,
-    },
-    {
-      name: 'John Doe',
-      job: 'Backend Dev',
-      review:
-        ' Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui distinctio error explicabo sapiente labore odio perspiciatis voluptatum ipsum iure ullam.',
-      star: 4.5,
-      imgUrl: people2,
-    },
-    {
-      name: 'Nao Lynn',
-      job: 'Public Relationship',
-      review:
-        ' Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui distinctio error explicabo sapiente labore odio perspiciatis voluptatum ipsum iure ullam.',
-      star: 5.0,
-      imgUrl: people3,
-    },
-    {
-      name: 'Linda',
-      job: 'Broadcasting',
-      review:
-        ' Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui distinctio error explicabo sapiente labore odio perspiciatis voluptatum ipsum iure ullam.',
-      star: 4.4,
-      imgUrl: people4,
-    },
-  ];
+  const { data, run, status, isLoading, error } = useAsync();
+  useEffect(() => {
+    run(fetchData({ url: '/api/v1/products' }));
+  }, [run]);
   return (
     <section
       ref={testimonialRef}
@@ -61,49 +29,54 @@ export default function Testimonial({ testimonialRef }) {
       <h2 className='font-semibold text-primary text-2xl md:text-3xl text-center pb-12 md:py-4'>
         What people say about us?
       </h2>
-      <Carousel
-        showArrows={true}
-        infiniteLoop={true}
-        showThumbs={false}
-        showStatus={false}
-        interval={6100}>
-        {arrTestimonial.map((items, index) => {
-          return (
-            <div
-              key={index}
-              className='grid grid-cols-1 md:grid-cols-2 w-full overflow-hidden items-center justify-center'>
-              <div className='w-full h-[350px] md:h-[525px] p-1'>
-                <img
-                  src={items.imgUrl}
-                  alt={items.name}
-                  className='object-cover object-center bg-no-repeat w-full h-full'
-                />
-              </div>
-              <div className='myCarousel w-full h-full flex flex-col justify-evenly px-4 pt-3 pb-12 md:pb-0 md:pt-0 md:px-8 md:py-6'>
-                <p className='text-start text-primary text-lg md:text-2xl'>
-                  {items.review}
-                </p>
-                <div className='text-start'>
-                  <h3 className='text-primary text-start my-3 md:my-0 text-2xl md:text-3xl font-semibold capitalize'>
-                    {items.name}
-                  </h3>
-                  <h4 className='text-tersier text-start mb-2 md:mb-0 text-base md:text-lg font-normal'>
-                    {items.job}
-                  </h4>
-                  <div className='flex items-center'>
-                    <Star
-                      value={items.star}
-                      width={28}
-                      height={28}
-                      spacing={4}></Star>
-                    <span className='text-primary ml-4'>{items.star}</span>
+      {isLoading ? (
+        <SkeletonLoadingTestimonials />
+      ) : (
+        <Carousel
+          showArrows={true}
+          infiniteLoop={true}
+          showThumbs={false}
+          showStatus={false}
+          interval={6100}>
+          {data?.testimonials?.map((items, index) => {
+            return (
+              <div
+                key={index}
+                className='grid grid-cols-1 md:grid-cols-2 w-full overflow-hidden items-center justify-center'>
+                <div className='w-full h-[350px] md:h-[525px] p-1'>
+                  <img
+                    src={items.imgUrl}
+                    alt={items.name}
+                    className='object-cover object-center bg-no-repeat w-full h-full'
+                  />
+                </div>
+                <div className='myCarousel w-full h-full flex flex-col justify-evenly px-4 pt-3 pb-12 md:pb-0 md:pt-0 md:px-8 md:py-6'>
+                  <p className='text-start text-primary text-lg md:text-2xl'>
+                    {items.review}
+                  </p>
+                  <div className='text-start'>
+                    <h3 className='text-primary text-start my-3 md:my-0 text-2xl md:text-3xl font-semibold capitalize'>
+                      {items.name}
+                    </h3>
+                    <h4 className='text-tersier text-start mb-2 md:mb-0 text-base md:text-lg font-normal'>
+                      {items.job}
+                    </h4>
+                    <div className='flex items-center'>
+                      <Star
+                        value={items.star}
+                        width={28}
+                        height={28}
+                        spacing={4}></Star>
+                      <span className='text-primary ml-4'>{items.star}</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </Carousel>
+            );
+          })}
+        </Carousel>
+      )}
+
       <div className='w-full overflow-hidden flex items-center justify-center bottom-[-20%] absolute'>
         <div className='md:w-[1160px] md:h-[332px] grid grid-cols-2 container mx-auto bg-gradient-to-tr from-[#20BFB6] to-[#2fe8df] rounded-xl md:rounded-2xl'>
           <div className='w-full overflow-hidden flex flex-col justify-evenly md:justify-start p-4 md:px-12 md:py-8'>

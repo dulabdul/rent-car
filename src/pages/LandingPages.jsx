@@ -7,7 +7,7 @@ import HowItWork from '../parts/HowItWork';
 import PopularRent from '../parts/PopularRent';
 import Testimonial from '../parts/Testimonial';
 import WhyChoseUs from '../parts/WhyChoseUs';
-import { Helmet } from 'react-helmet';
+
 export default function LandingPages() {
   const howItWorkRef = useRef(null);
   const whyChoseUsRef = useRef(null);

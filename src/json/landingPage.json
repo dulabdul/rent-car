@@ -1,0 +1,156 @@
+{
+  "hero": {
+    "heroUrl": "/images/design/hero-car.png"
+  },
+  "clients": [
+    {
+      "title": "BMW",
+      "src": "/images/design/bmw.svg"
+    },
+    {
+      "title": "Ford",
+      "src": "/images/design/ford.svg"
+    },
+    {
+      "title": "Hyundai",
+      "src": "/images/design/hyundai.svg"
+    },
+    {
+      "title": "Lamborgini",
+      "src": "/images/design/lambo.svg"
+    },
+    {
+      "title": "Mazda",
+      "src": "/images/design/mazda.svg"
+    },
+    {
+      "title": "Mercedez-Bens",
+      "src": "/images/design/mercedez.svg"
+    },
+    {
+      "title": "Nissan",
+      "src": "/images/design/nissan.svg"
+    },
+    {
+      "title": "Toyota",
+      "src": "/images/design/toyota.svg"
+    }
+  ],
+  "popularCar": [
+    {
+      "_id": "rnt202301181",
+      "review": 4.8,
+      "name": "BMW - 520i",
+      "price": 200,
+      "src": "/images/design/car-1-LP.png",
+      "fitur": [
+        {
+          "text": "4 passengers"
+        },
+        {
+          "text": "Manual"
+        },
+        {
+          "text": "Air Conditioner"
+        },
+        {
+          "text": "4 door"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "review": 4.2,
+      "name": "Audi TT Coupe",
+      "price": 400,
+      "src": "/images/design/car-2-LP.png",
+
+      "fitur": [
+        {
+          "text": "4 passengers"
+        },
+        {
+          "text": "Manual"
+        },
+        {
+          "text": "Air Conditioner"
+        },
+        {
+          "text": "4 door"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "src": "/images/design/car-3-LP.png",
+      "review": 5.0,
+      "name": "Mercedez-Bens S-Class",
+      "price": 250,
+      "fitur": [
+        {
+          "text": "4 passengers"
+        },
+        {
+          "text": "Manual"
+        },
+        {
+          "text": "Air Conditioner"
+        },
+        {
+          "text": "4 door"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "src": "/images/design/car-4-LP.png",
+      "review": 4.9,
+      "name": "Tesla Model S",
+      "price": 200,
+      "fitur": [
+        {
+          "text": "4 passengers"
+        },
+        {
+          "text": "Manual"
+        },
+        {
+          "text": "Air Conditioner"
+        },
+        {
+          "text": "4 door"
+        }
+      ]
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Shirley Fultz",
+      "job": "Designer",
+      "review": " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui distinctio error explicabo sapiente labore odio perspiciatis voluptatum ipsum iure ullam.",
+      "star": 4.8,
+      "imgUrl": "/images/design/people-1.jpg"
+    },
+    {
+      "name": "John Doe",
+      "job": "Backend Dev",
+      "review": " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui distinctio error explicabo sapiente labore odio perspiciatis voluptatum ipsum iure ullam.",
+      "star": 4.5,
+      "imgUrl": "/images/design/people-2.jpg"
+    },
+    {
+      "name": "Nao Lynn",
+      "job": "Public Relationship",
+      "review": " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui distinctio error explicabo sapiente labore odio perspiciatis voluptatum ipsum iure ullam.",
+      "star": 5.0,
+      "imgUrl": "/images/design/people-3.jpg"
+    },
+    {
+      "name": "Linda",
+      "job": "Broadcasting",
+      "review": " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui distinctio error explicabo sapiente labore odio perspiciatis voluptatum ipsum iure ullam.",
+      "star": 4.4,
+      "imgUrl": "/images/design/people-4.jpg"
+    }
+  ]
+}

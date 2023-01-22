@@ -1,0 +1,45 @@
+[
+  {
+    "_id": "rnt202301181",
+    "review": 4.8,
+    "name": "BMW - 520i",
+    "price": 200,
+    "description": "  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis ac nunc ac varius. Pellentesque tincidunt nibh ut auctor convallis. Cras non mauris vulputate, volutpat libero ut, venenatis orci. Quisque vel venenatis ipsum, eu euismod enim. Integer auctor id lacus hendrerit rutrum. Sed dolor leo, luctus sed quam vitae, lobortis ornare justo.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis ac nunc ac varius. Pellentesque tincidunt nibh ut auctor convallis. Cras non mauris vulputate, volutpat libero ut, venenatis orci. Quisque vel venenatis ipsum, eu euismod enim. Integer auctor id lacus hendrerit rutrum. Sed dolor leo, luctus sed quam vitae, lobortis ornare justo.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis ac nunc ac varius. Pellentesque tincidunt nibh ut auctor convallis. Cras non mauris vulputate, volutpat libero ut, venenatis orci. Quisque vel venenatis ipsum, eu euismod enim. Integer auctor id lacus hendrerit rutrum. Sed dolor leo, luctus sed quam vitae, lobortis ornare justo.</p>",
+    "imageUrls": [
+      {
+        "_id": "imgrnt20230118",
+        "url": "/images/details/rent-car-detail-1.jpg"
+      },
+      {
+        "_id": "imgrnt20230118",
+        "url": "/images/details/rent-car-detail-2.jpg"
+      },
+      {
+        "_id": "imgrnt20230118",
+        "url": "/images/details/rent-car-detail-3.jpg"
+      },
+      {
+        "_id": "imgrnt20230118",
+        "url": "/images/details/rent-car-detail-4.jpg"
+      },
+      {
+        "_id": "imgrnt20230118",
+        "url": "/images/details/rent-car-detail-5.jpg"
+      }
+    ],
+    "fitur": [
+      {
+        "text": "4 passengers"
+      },
+      {
+        "text": "Manual"
+      },
+      {
+        "text": "Air Conditioner"
+      },
+      {
+        "text": "4 door"
+      }
+    ]
+  }
+]

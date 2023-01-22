@@ -1,124 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaUserAlt } from 'react-icons/fa';
 import { TbManualGearbox } from 'react-icons/tb';
 import { RiTempColdLine } from 'react-icons/ri';
 import { GiCarDoor } from 'react-icons/gi';
 import { AiTwotoneStar } from 'react-icons/ai';
 import { BsArrowRight } from 'react-icons/bs';
-import car1 from '../assets/images/design/car-1.png';
-import car2 from '../assets/images/design/car-2.png';
-import car3 from '../assets/images/design/car-3.png';
-import car4 from '../assets/images/design/car-4.png';
 import Button from '../components/Button';
 import Star from '../components/Star';
+import useAsync from '../helpers/hooks/useAsync';
+import fetchData from '../helpers/fetch';
+import { SkeletonLoadingPopularRent } from './SkeletonLoading';
+import { Link } from 'react-router-dom';
 
 export default function PopularRent({ popularRentRef }) {
-  const arrFeatur = [
-    {
-      id: 1,
-      src: car1,
-      alt: 'Car Mazda',
-      review: 4.8,
-      name: 'Tata Zest - XE Petrol',
-      price: 200,
-      fitur: [
-        {
-          icons: <FaUserAlt />,
-          text: '4 passengers',
-        },
-        {
-          icons: <TbManualGearbox />,
-          text: 'Manual',
-        },
-        {
-          icons: <RiTempColdLine />,
-          text: 'Air Conditioner',
-        },
-        {
-          icons: <GiCarDoor />,
-          text: '4 door',
-        },
-      ],
-    },
-    {
-      id: 2,
-      src: car2,
-      alt: 'Car Mazda',
-      review: 4.2,
-      name: 'i20 2018 Model - Noida, India',
-      price: 400,
-      fitur: [
-        {
-          icons: <FaUserAlt />,
-          text: '4 passengers',
-        },
-        {
-          icons: <TbManualGearbox />,
-          text: 'Manual',
-        },
-        {
-          icons: <RiTempColdLine />,
-          text: 'Air Conditioner',
-        },
-        {
-          icons: <GiCarDoor />,
-          text: '4 door',
-        },
-      ],
-    },
-    {
-      id: 3,
-      src: car3,
-      alt: 'Car Mazda',
-      review: 5.0,
-      name: 'Suzuki Grand Vitara T',
-      price: 250,
-      fitur: [
-        {
-          icons: <FaUserAlt />,
-          text: '4 passengers',
-        },
-        {
-          icons: <TbManualGearbox />,
-          text: 'Manual',
-        },
-        {
-          icons: <RiTempColdLine />,
-          text: 'Air Conditioner',
-        },
-        {
-          icons: <GiCarDoor />,
-          text: '4 door',
-        },
-      ],
-    },
-    {
-      id: 4,
-      src: car4,
-      alt: 'Car Mazda',
-      review: 4.9,
-      name: 'Hyundai Creta 2019-20',
-      price: 200,
-      fitur: [
-        {
-          icons: <FaUserAlt />,
-          text: '4 passengers',
-        },
-        {
-          icons: <TbManualGearbox />,
-          text: 'Manual',
-        },
-        {
-          icons: <RiTempColdLine />,
-          text: 'Air Conditioner',
-        },
-        {
-          icons: <GiCarDoor />,
-          text: '4 door',
-        },
-      ],
-    },
-  ];
+  const { run, data, status, error, isLoading } = useAsync();
+  console.log(data);
+  useEffect(() => {
+    run(fetchData({ url: '/api/v1/products' }));
+  }, [run]);
   return (
     <section
       ref={popularRentRef}
@@ -130,68 +29,78 @@ export default function PopularRent({ popularRentRef }) {
         <h2 className='capitalize text-primary font-semibold text-center text-2xl md:text-3xl'>
           Most popular cars rental deals
         </h2>
+
         <div className='w-full py-12 flex flex-wrap gap-y-4 md:grid md:grid-cols-4 items-center justify-center overflow-hidden'>
-          {arrFeatur.map((items, index) => {
-            return (
-              <div
-                key={items.id}
-                className='bg-white border overflow-hidden p-1 md:p-2 shadow-lg rounded-xl w-11/12 md:w-[272px] h-[385px]'>
-                <div className='h-[165px] flex items-center justify-center overflow-hidden bg-[#F7F7FB] rounded-xl'>
-                  <img
-                    src={items.src}
-                    alt={items.alt}
-                  />
-                </div>
-                <div className='ml-1 mt-3 px-2 md:px-0'>
-                  <div className='flex items-center'>
-                    <Star
-                      value={items.review}
-                      width={24}
-                      height={24}
-                      spacing={2}></Star>
-                    <span className='text-primary font-normal text-sm'>
-                      {items.review}{' '}
-                    </span>
-                    <span className='text-[10px] font-light text-tersier'>
-                      {'[100+ review]'}
-                    </span>
-                  </div>
-                  <h4 className='font-semibold text-primary mt-4 px-2 md:px-0'>
-                    {items.name}
-                  </h4>
-                </div>
-                <div className='w-full py-2 mx-2 grid grid-cols-2 justify-center overflow-hidden px-2 md:px-0'>
-                  {items.fitur.map((featur, index) => {
-                    return (
-                      <div
-                        key={index}
-                        className='flex my-2 text-tersier'>
-                        <p className='text-md'>{featur.icons}</p>
-                        <span className='ml-1 text-sm text-tersier font-normal'>
-                          {featur.text}
+          {isLoading
+            ? Array(4)
+                .fill()
+                .map((_, index) => {
+                  return <SkeletonLoadingPopularRent key={index + 10} />;
+                })
+            : data?.popularCar.map((items, index) => {
+                return (
+                  <div
+                    key={items.id}
+                    className='bg-white relative border overflow-hidden p-1 md:p-2 shadow-lg rounded-xl w-11/12 md:w-[272px] h-[385px]'>
+                    <div className='group hover:scale-95 transition-all duration-300 h-[165px] flex items-center justify-center overflow-hidden bg-[#F7F7FB] rounded-xl'>
+                      <img
+                        src={items.src}
+                        alt={items.alt}
+                        className='object-center object-cover bg-no-repeat w-full group-hover:scale-110 duration-300 transition-all'
+                      />
+                    </div>
+                    <div className='ml-1 mt-3 px-2 md:px-0'>
+                      <div className='flex items-center'>
+                        <Star
+                          value={items.review}
+                          width={24}
+                          height={24}
+                          spacing={2}></Star>
+                        <span className='text-primary font-normal text-sm'>
+                          {items.review}{' '}
+                        </span>
+                        <span className='text-[10px] font-light text-tersier'>
+                          {'[100+ review]'}
                         </span>
                       </div>
-                    );
-                  })}
-                </div>
-                <hr />
-                <div className='flex my-2 items-center justify-between px-2 md:px-0'>
-                  <p>
-                    {'$'}
-                    {items.price} /
-                    <span className='text-tersier font-light text-sm'>day</span>
-                  </p>
-                  <Button
-                    isFlex
-                    className='items-center text-secondary hover:text-primary'
-                    type='link'>
-                    Rent Now{' '}
-                    <BsArrowRight className='ml-2 font-semibold text-2xl' />
-                  </Button>
-                </div>
-              </div>
-            );
-          })}
+                      <h4 className='font-semibold text-primary mt-4 px-2 md:px-0'>
+                        {items.name}
+                      </h4>
+                    </div>
+                    <div className='w-full py-2 mx-2 grid grid-cols-2 justify-center overflow-hidden px-2 md:px-0'>
+                      {items.fitur.map((featur, index) => {
+                        return (
+                          <div
+                            key={`index-${index}`}
+                            className='flex my-2 text-tersier'>
+                            <span className='ml-1 text-sm text-tersier font-normal'>
+                              {featur.text}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <hr />
+                    <div className='flex my-2 items-center justify-between px-2 md:px-0'>
+                      <p>
+                        {'$'}
+                        {items.price} /
+                        <span className='text-tersier font-light text-sm'>
+                          day
+                        </span>
+                      </p>
+                      <Button
+                        isFlex
+                        className='items-center text-secondary hover:text-primary'
+                        type='link'
+                        href={`/rent/${items.id}`}>
+                        Rent Now{' '}
+                        <BsArrowRight className='ml-2 font-semibold text-2xl' />
+                      </Button>
+                    </div>
+                  </div>
+                );
+              })}
         </div>
         <div className='flex justify-center'>
           <Button

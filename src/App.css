@@ -1,10 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,300;1,500;1,600&display=swap');
 @tailwind base;
 @tailwind components;
+@layer components {
+  .thumbnail .item {
+    @apply relative;
+  }
+  .thumbnail .item:after {
+    content: '';
+    @apply transition-all absolute inset-0 bg-white border-2 bg-opacity-0 border-black border-opacity-0 rounded-lg;
+  }
+  .thumbnail .selected:after {
+    content: '';
+    @apply bg-opacity-40 border-opacity-100;
+  }
+}
 @tailwind utilities;
 @layer utilities {
   .button {
     @apply min-h-[44px] min-w-[44px] px-2 md:px-4 py-1;
+  }
+  .stretched-link {
+    @apply z-10 absolute inset-0 bg-transparent;
   }
 }
 body {
