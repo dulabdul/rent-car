@@ -1,7 +1,7 @@
 import HTMLReactParser from 'html-react-parser';
 import React, { useState, useEffect } from 'react';
 import Star from '../components/Star';
-
+import Button from '../components/Button';
 export default function Rent({ data }) {
   const [slider, setSlider] = useState(null);
   console.log(data?.imageUrls[0]?.url);
@@ -65,6 +65,17 @@ export default function Rent({ data }) {
           <div className='text-primary'>
             {data?.description ? HTMLReactParser(data?.description) : 'Loading'}
           </div>
+          <Button
+            type='link'
+            target='_blank'
+            isExternal
+            isFlex
+            href='https://api.whatsapp.com/send?phone=6281213366247&text=Halo%20saya%20Abdul%20ingin%20menyewa%20mobil'
+            isRounded
+            isSecondary
+            className='button items-center justify-center mt-2 md:w-1/2'>
+            Rent Now
+          </Button>
         </div>
       </div>
     </section>

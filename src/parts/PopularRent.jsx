@@ -13,11 +13,11 @@ import { SkeletonLoadingPopularRent } from './SkeletonLoading';
 import { Link } from 'react-router-dom';
 
 export default function PopularRent({ popularRentRef }) {
-  const { run, data, status, error, isLoading } = useAsync();
-  console.log(data);
+  const { data, run, status, isLoading, error } = useAsync();
   useEffect(() => {
-    run(fetchData({ url: '/api/v1/products' }));
+    run(fetchData({ url: '/api/v1/landing-pages/popularRent' }));
   }, [run]);
+  console.log(data?.data);
   return (
     <section
       ref={popularRentRef}
@@ -37,7 +37,7 @@ export default function PopularRent({ popularRentRef }) {
                 .map((_, index) => {
                   return <SkeletonLoadingPopularRent key={index + 10} />;
                 })
-            : data?.popularCar.map((items, index) => {
+            : data?.data?.map((items, index) => {
                 return (
                   <div
                     key={items.id}

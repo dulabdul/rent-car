@@ -17,7 +17,7 @@ import { SkeletonLoadingTestimonials } from './SkeletonLoading';
 export default function Testimonial({ testimonialRef }) {
   const { data, run, status, isLoading, error } = useAsync();
   useEffect(() => {
-    run(fetchData({ url: '/api/v1/products' }));
+    run(fetchData({ url: '/api/v1/landing-pages/testimonial' }));
   }, [run]);
   return (
     <section
@@ -38,7 +38,7 @@ export default function Testimonial({ testimonialRef }) {
           showThumbs={false}
           showStatus={false}
           interval={6100}>
-          {data?.testimonials?.map((items, index) => {
+          {data?.map((items, index) => {
             return (
               <div
                 key={index}

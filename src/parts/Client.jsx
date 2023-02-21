@@ -2,17 +2,16 @@ import React, { useEffect } from 'react';
 import fetchData from '../helpers/fetch';
 import useAsync from '../helpers/hooks/useAsync';
 
-export default function Client({ clients }) {
+export default function Client() {
   const { run, data, isLoading, error } = useAsync();
   useEffect(() => {
-    run(fetchData({ url: '/api/v1/products' }));
+    run(fetchData({ url: '/api/v1/landing-pages/clients' }));
   }, [run]);
-
   return (
     <section className='flex items-center justify-center overflow-hidden w-full  md:py-28'>
       <div className='container items-center mx-auto flex flex-wrap gap-x-4 gap-y-6 md:gap-x-16 px-3 py-16 md:py-8 justify-center overflow-hidden'>
         {isLoading
-          ? data?.clients?.map((items, index) => {
+          ? data?.map((items, index) => {
               return (
                 <div role='status'>
                   <svg
@@ -34,7 +33,7 @@ export default function Client({ clients }) {
                 </div>
               );
             })
-          : data?.clients?.map((items, index) => {
+          : data?.map((items, index) => {
               return (
                 <div
                   key={index}

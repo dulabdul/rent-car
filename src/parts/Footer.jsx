@@ -13,7 +13,7 @@ export default function Footer() {
   const arrMedsos = [
     {
       icons: <BsInstagram />,
-      href: 'http://instragam.com/dul.abdul',
+      href: 'http://instragam.com/dul.abdul21',
     },
     {
       icons: <BsLinkedin />,
@@ -58,6 +58,7 @@ export default function Footer() {
                     key={index}
                     type='link'
                     isExternal
+                    target='_blank'
                     href={items.href}
                     className='min-w-[44px] flex items-center justify-center min-h-[44px] border border-[#505865] rounded-full cursor-pointer transition-all ease-in-out hover:text-white hover:bg-secondary '>
                     <span className='text-2xl md:text-xl'>{items.icons}</span>
